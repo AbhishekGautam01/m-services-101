@@ -1,7 +1,13 @@
-import './App.css';
-
+import React from 'react';
+import PostCreate from './PostCreate';
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="container">
+      Blog App
+      <h1>Post Create</h1>
+      <PostCreate />
+    </div>
+  );
 }
 
 export default App;
