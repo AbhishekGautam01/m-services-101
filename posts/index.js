@@ -27,7 +27,7 @@ app.post('/posts', async (req, res) => {
       ...posts[id],
     },
   };
-  await axios.post('http://localhost:4005/events', requestBody);
+  await axios.post('http://event-bus-srv:4005/events', requestBody);
 
   res.status(201).send(posts[id]);
 });
