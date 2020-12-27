@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { randomBytes } = require('crypto');
 const cors = require('cors');
-
+const axios = require('axios');
 const app = express();
 //middleware
 app.use(bodyParser.json());
@@ -21,14 +21,13 @@ app.post('/posts', async (req, res) => {
     id,
     title,
   };
-
-  await axios.post('http://localhost:4005/events', {
+  const requestBody = {
     type: 'PostCreated',
     data: {
-      id,
-      title,
+      ...posts[id],
     },
-  });
+  };
+  await axios.post('http://localhost:4005/events', requestBody);
 
   res.status(201).send(posts[id]);
 });
@@ -39,5 +38,5 @@ app.post('/events', (req, res) => {
 });
 
 app.listen(4000, () => {
-  console.log('Listening on http 4000');
+  console.log('Posts Service:4000');
 });

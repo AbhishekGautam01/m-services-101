@@ -50,5 +50,5 @@ app.post('/events', async (req, res) => {
 });
 
 app.listen(4001, () => {
-  console.log('Listening for 4001');
+  console.log('Comment Service:4001');
 });

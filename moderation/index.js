@@ -24,5 +24,5 @@ app.post('/events', async (req, res) => {
 });
 
 app.listen(4003, () => {
-  console.log('App running on port 4003');
+  console.log('Moderation:4003');
 });

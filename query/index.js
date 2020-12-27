@@ -10,7 +10,7 @@ app.get('/posts', (req, res) => {
   res.send(posts);
 });
 
-app.get('/events', (req, res) => {
+app.post('/events', (req, res) => {
   const { type, data } = req.body;
   if (type === 'PostCreated') {
     const { id, title } = data;
@@ -33,5 +33,5 @@ app.get('/events', (req, res) => {
 });
 
 app.listen(4002, () => {
-  console.log('App Listening on port 4002 ');
+  console.log('Query Service:4002 ');
 });
